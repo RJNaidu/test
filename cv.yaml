@@ -1,0 +1,11 @@
+---
+    - name: 'verify that the TSM backup team has stopped the agents and the backup server'
+    
+    - name: 'Security patch'
+      shell: cat /sys/devices/system/cpu/smt/active
+             #cat /sys/devices/system/cpu/smt/control
+      register: smt_state
+    
+    - name: Debug
+      debug:
+        var: smt_state
